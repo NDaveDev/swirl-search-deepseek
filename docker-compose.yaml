@@ -9,7 +9,7 @@ services:
       timeout: 5s
       retries: 5
   app:
-    image: NDaveDev/swirl-search-deepseek:latest
+    image: github.com/NDaveDev/swirl-search-deepseek
     ports:
       - "8000:8000"
     depends_on:
