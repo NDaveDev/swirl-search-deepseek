@@ -5,9 +5,9 @@ import os
 import logging
 logger = logging.getLogger(__name__)
 
-MODEL_3 = "gpt-3.5-turbo"
-MODEL_4 = "gpt-4"
-MODEL = MODEL_4
+MODEL_CHAT = "deepseek-chat"
+MODEL_REASONER = "deepseek-reasoner"
+MODEL = MODEL_CHAT
 
 AI_RAG_USE  = "AI_RAG_USE"
 AI_REWRITE_USE =  "AI_REWRITE_USE"
@@ -56,7 +56,7 @@ class OpenAIClient:
         try:
             if provider == "OPENAI":
                 from openai import OpenAI
-                ai_client = OpenAI(api_key=key)
+                ai_client = OpenAI(api_key=key, base_url="https://api.deepseek.com")
             elif provider == "AZUREAI":
                 from openai import AzureOpenAI
                 ai_client = AzureOpenAI(api_key=key, azure_endpoint=self._azure_endpoint, api_version="2023-10-01-preview")
